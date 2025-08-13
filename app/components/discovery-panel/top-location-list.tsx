@@ -18,7 +18,7 @@ export function TopLocationsList({
   onLocationClick,
 }: TopLocationsListProps) {
   return (
-    <div className="hidden md:grid md:grid-cols-4 md:justify-items-center md:gap-1">
+    <div className="mt-4 grid grid-cols-6 justify-items-center gap-1">
       {locations.map((location) => (
         <div className="flex flex-col items-center" key={location.name}>
           <Button
