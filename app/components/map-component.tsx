@@ -32,6 +32,9 @@ export default function MapComponent() {
   useEffect(() => {
     if (!mapContainer.current) return;
 
+    // Log current config for debugging
+    // console.log("Current map config:", config.mapConfig);
+
     const map = new maplibregl.Map({
       ...config.mapConfig,
       style: config.mapStyles[theme as Theme],
@@ -53,6 +56,21 @@ export default function MapComponent() {
 
     map.addControl(new NavigationControl(), "bottom-right");
     map.addControl(new FullscreenControl(), "bottom-right");
+
+    // Log map position when moved
+    // map.on("moveend", () => {
+    //   const center = map.getCenter();
+    //   const zoom = map.getZoom();
+    //   const bearing = map.getBearing();
+    //   const pitch = map.getPitch();
+    //   console.log("Map moved to:", {
+    //     center: [center.lng, center.lat],
+    //     zoom: zoom,
+    //     bearing: bearing,
+    //     pitch: pitch,
+    //     coordinates: `${center.lat},${center.lng},${zoom.toFixed(2)}z`,
+    //   });
+    // });
 
     if (process.env.NODE_ENV === "development") {
       map.addControl(
