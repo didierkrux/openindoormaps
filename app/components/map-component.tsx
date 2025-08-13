@@ -9,11 +9,9 @@ import POIsLayer from "~/layers/pois-layer";
 import building from "~/mock/building.json";
 import useMapStore from "~/stores/use-map-store";
 import DiscoveryPanel from "./discovery-panel/discovery-panel";
-import { FloorSelector } from "./floor-selector";
 import { FloorUpDownControl } from "./floor-up-down-control";
 import { IndoorMapGeoJSON } from "~/types/geojson";
-import DemoBanner from "./demo-banner";
-import OIMLogo from "../controls/oim-logo";
+// import DemoBanner from "./demo-banner";
 import { Theme, useTheme } from "remix-themes";
 import "~/maplibre.css";
 
@@ -68,7 +66,7 @@ export default function MapComponent() {
       );
     }
 
-    map.addControl(new OIMLogo());
+    // map.addControl(new OIMLogo());
 
     return () => {
       map.remove();
@@ -80,13 +78,13 @@ export default function MapComponent() {
       <DiscoveryPanel />
       {process.env.NODE_ENV === "development" && (
         <>
-          <FloorSelector indoorMapLayer={indoorMapLayer} />
+          {/* <FloorSelector indoorMapLayer={indoorMapLayer} /> */}
           <FloorUpDownControl indoorMapLayer={indoorMapLayer} />
         </>
       )}
 
       <div ref={mapContainer} className="size-full" />
-      <DemoBanner />
+      {/* <DemoBanner /> */}
     </div>
   );
 }
